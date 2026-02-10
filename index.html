@@ -143,12 +143,15 @@
   <h1>I love you ❤️</h1>
   <p>Turn your volume up 🎧</p>
 
-  <iframe
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/GX9x62kFsVU?autoplay=1&loop=1&playlist=GX9x62kFsVU"
-    allow="autoplay">
-  </iframe>
+  <div id="musicBox">
+    <iframe
+      id="ytplayer"
+      width="300"
+      height="170"
+      src="https://www.youtube.com/embed/GX9x62kFsVU?enablejsapi=1&autoplay=1"
+      allow="autoplay">
+    </iframe>
+  </div>
 </div>
 
   <iframe
@@ -160,11 +163,15 @@
 </div>
 
 <script>
-  function goToLove() {
-    document.getElementById("page1").style.display = "none";
-    document.getElementById("page2").style.display = "block";
-  }
+ function goToLove() {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "block";
 
+  // force music play after user click
+  setTimeout(() => {
+    document.getElementById("musicBox").style.display = "none";
+  }, 1500);
+}
   const noBtn = document.getElementById("noBtn");
   noBtn.addEventListener("mouseover", () => {
     const x = Math.random() * (window.innerWidth - 120);
